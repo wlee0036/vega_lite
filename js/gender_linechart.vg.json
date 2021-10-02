@@ -1,0 +1,37 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Suicide Rate by Gender over Time",
+              "subtitle": "Per 100 K Population",
+              "subtitleFontStyle": "italic",
+              "anchor": "start",
+              "dx": 30,
+              "dy": -10}, 
+    "data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_rate.csv"},
+    "layer" : [ {"mark": {
+      "type": "line",
+      "point": true
+    },
+    "encoding": {
+      "x": {"field": "year", "type": "ordinal", "title": "Year"},
+      "y": {"aggregate":"mean", "field": "suicides/100k pop", "type": "quantitative", "title": "Average Rate"},
+      "color": {"field": "sex", "type": "nominal", "title": "Gender",
+                "scale": {"range": ["#8700f9", "#00c4aa"]}},
+      "tooltip" : [
+        {"field": "year", "type": "ordinal", "title": "Year"},
+        {"aggregate":"mean", "field": "suicides/100k pop", "type": "quantitative", "title": "Average Rate", "format": ".2f"}
+        ]
+      }
+    },
+    {"encoding": {
+      "y": {"aggregate": "mean", "field": "suicides/100k pop", "type": "quantitative"},
+      "tooltip" : [
+        {"aggregate":"mean", "field": "suicides/100k pop", "type": "quantitative", "title": "Global Average Rate","format": ".2f"}
+        ]
+      },
+    "mark": {"type": "rule",
+            "strokeDash": [8,4]
+        }
+      }
+    ],
+    "config": {"background": "#eff3f8"}
+  }
