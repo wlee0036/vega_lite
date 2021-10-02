@@ -1,0 +1,62 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Suicide Rate by Age Group",
+              "subtitle": "Per 100 K Population",
+              "subtitleFontStyle": "italic",
+              "anchor": "start",
+              "dx": 30,
+              "dy": -10},
+    "width": 350,
+    "height": 300,
+    "data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_rate.csv"},
+    "params": [
+      {"name": "continent_selection",
+       "bind": {
+         "input": "select",
+         "options": [
+           null,
+           "Africa",
+           "Americas",
+           "Asia",
+           "Europe",
+           "Oceania"
+      ],
+          "labels": [
+            "Show All",
+            "Africa",
+            "Americas",
+            "Asia",
+            "Europe",
+            "Oceania"
+          ],
+          "name": "Select Continent:"
+       }  
+      }
+    ],
+    "transform": [
+      {"filter": "continent_selection == null || datum.continent == continent_selection"}
+    ],
+    "mark": "bar",
+    "encoding": {
+      "x": {"field": "age", "type": "nominal",
+            "axis": {"labelAngle": 0},
+            "sort": ["5-14 years", "15-24 years", "25-34 years", "35-54 years", "55-74 years", "75+ years"],
+            "title": "Age"},
+      "y": {"field": "suicides/100k pop", 
+            "aggregate": "mean",
+            "type": "quantitative",
+            "title": "Average Rate",
+            "axis": {"tickCount": {"interval": 5}}},
+      "tooltip": [
+        {"field": "age", "type": "nominal", "title": "Age"},
+        {"field": "suicides/100k pop", 
+         "aggregate": "mean",
+         "type": "quantitative",
+         "title": "Average Rate",
+         "format": ".2f"}
+      ]
+    },
+    "config": {"background": "#eff3f8",
+              "mark": {"color": "#d84536"}}
+  }
+  
