@@ -15,7 +15,7 @@
       "x": {"field": "year", "type": "ordinal", "title": "Year"},
       "y": {"aggregate":"mean", "field": "suicides/100k pop", "type": "quantitative", "title": "Average Rate"},
       "color": {"field": "sex", "type": "nominal", "title": "Gender",
-                "scale": {"range": ["#8700f9", "#00c4aa"]}},
+                "scale": {"range": ["#ff6961", "#00c4aa"]}},
       "tooltip" : [
         {"field": "year", "type": "ordinal", "title": "Year"},
         {"aggregate":"mean", "field": "suicides/100k pop", "type": "quantitative", "title": "Average Rate", "format": ".2f"}

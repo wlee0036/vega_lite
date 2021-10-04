@@ -1,67 +1,67 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text": "Gender Disparity in Suicide by Country",
-              "subtitle": "Per 100K Population",
-              "subtitleFontStyle": "italic",
-              "anchor": "start",
-              "dx": 30,
-              "dy": -10},
-    "data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_gap_gender.csv"},
-    "width": 250,
-    "encoding": {
-      "x": {
-        "field": "suicide_rate",
-        "type": "quantitative",
-        "title": "Average Suicide Rate"
-      },
-      "y": {
-        "field": "country",
-        "type": "nominal",
-        "title": "Country",
-        "sort": {"op": "mean", "field": "suicide_rate", "order": "descending"},
-        "axis": {
-          "offset": 5,
-          "ticks": false,
-          "minExtent": 70,
-          "domain": false
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text": "Gender Disparity in Suicide by Country",
+            "subtitle": "Per 100K Population",
+            "subtitleFontStyle": "italic",
+            "anchor": "start",
+            "dx": 30,
+            "dy": -10},
+  "data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_gap_gender.csv"},
+  "width": 250,
+  "encoding": {
+    "x": {
+      "field": "suicide_rate",
+      "type": "quantitative",
+      "title": "Average Suicide Rate"
+    },
+    "y": {
+      "field": "country",
+      "type": "nominal",
+      "title": "Country",
+      "sort": {"op": "mean", "field": "suicide_rate", "order": "descending"},
+      "axis": {
+        "offset": 5,
+        "ticks": false,
+        "minExtent": 70,
+        "domain": false
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "detail": {
+          "field": "country",
+          "type": "nominal"
+        },
+        "color": {"value": "#2b2d2f"}
       }
     },
-    "layer": [
-      {
-        "mark": "line",
-        "encoding": {
-          "detail": {
-            "field": "country",
-            "type": "nominal"
-          }
-        }
+    {
+      "mark": {
+        "type": "point",
+        "filled": true
       },
-      {
-        "mark": {
-          "type": "point",
-          "filled": true
-        },
-        "encoding": {
-          "color": {
-            "field": "sex",
-            "type": "nominal",
-            "scale": {
-              "domain": ["male", "female"],
-              "range": ["#00c4aa", "#8700f9"]
-            },
-            "title": "Gender"
+      "encoding": {
+        "color": {
+          "field": "sex",
+          "type": "nominal",
+          "scale": {
+            "domain": ["male", "female"],
+            "range": ["#00c4aa", "#ff6961"]
           },
-          "size": {"value": 50},
-          "opacity": {"value": 1},
-          "tooltip": [
-            {"field": "country", "title": "Country"},
-            {"field": "sex", "title": "Gender"},
-            {"field": "suicide_rate", "title": "Average Suicide Rate","format": ".2f"}
-          ]
-        }
+          "title": "Gender"
+        },
+        "size": {"value": 50},
+        "opacity": {"value": 1},
+        "tooltip": [
+          {"field": "country", "title": "Country"},
+          {"field": "sex", "title": "Gender"},
+          {"field": "suicide_rate", "title": "Average Suicide Rate","format": ".2f"}
+        ]
       }
-    ],
-    "config": {"background": "#eff3f8"}
-  }
-  
+    }
+  ],
+  "config": {"background": "#eff3f8"}
+}
