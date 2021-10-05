@@ -7,6 +7,8 @@
               "dx": 30,
               "dy": -10}, 
     "data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_rate.csv"},
+    "width": 450,
+    "height": 250,
     "layer" : [ {"mark": {
       "type": "line",
       "point": true
@@ -14,7 +16,7 @@
     "encoding": {
       "x": {"field": "year", "type": "ordinal", "title": "Year"},
       "y": {"aggregate":"mean", "field": "suicides/100k pop", "type": "quantitative", "title": "Average Rate"},
-      "color": {"field": "sex", "type": "nominal", "title": "Gender",
+      "color": {"field": "sex", "type": "nominal", "title": "Gender", "legend": null,
                 "scale": {"range": ["#ff6961", "#00c4aa"]}},
       "tooltip" : [
         {"field": "year", "type": "ordinal", "title": "Year"},

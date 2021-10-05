@@ -6,7 +6,7 @@
             "anchor": "start",
             "dx": 30,
             "dy": -10},
-  "width": 350,
+  "width": 500,
   "height": 300,
   "data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_rate.csv"},
   "params": [
