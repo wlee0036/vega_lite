@@ -1,12 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {"text": "Gender Disparity in Suicide by Country",
+  "title": {"text": "Gender Disparity in Suicide for Top 20 Countries",
             "subtitle": "Per 100K Population",
             "subtitleFontStyle": "italic",
             "anchor": "start",
             "dx": 30,
             "dy": -10},
-  "data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_gap_gender.csv"},
+  "data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_gap_gender_top20.csv"},
   "width": 250,
   "encoding": {
     "x": {
