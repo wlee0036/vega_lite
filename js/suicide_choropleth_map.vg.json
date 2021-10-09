@@ -1,49 +1,56 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text": "Global Suicide Rate Overview",
-    "subtitle" :"Number of Suicides per 100K Population"},
-    "width": 1000,
-    "height": 500,
-    "data": {
-      "url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/js/world.geo.json",
-      "format": {"type": "topojson", "feature": "custom.geo"}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text": "Global Suicide Rate Map",
+  "subtitle" :"Number of Suicides per 100K Population"},
+  "width": 1000,
+  "height": 500,
+  "data": {
+    "url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/js/world.geo.json",
+    "format": {"type": "topojson", "feature": "custom.geo"}
+  },
+  "projection": {"type": "equirectangular"},
+  "transform": [
+       {"calculate": "'Data is not available in ' + datum.properties.name",
+       "as": "note"}
+       ],
+  "layer": [
+    {
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+      "encoding": {
+        "tooltip": {
+          "field": "note"
+        }
+      }
     },
-    "projection": {"type": "equalEarth"},
-    "layer": [
-      {
-        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
-        "encoding": {
-          "tooltip": {
-            "field": "properties.name"
-          }
+    {
+      "transform": [
+        {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_by_country.csv"
+          },
+        "key": "country",
+        "fields": ["suicide_rate"]
         }
-      },
-      {
-        "transform": [
-          {
-        "lookup": "properties.name",
-        "from": {
-          "data": {
-            "url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_by_country.csv"
-            },
-          "key": "country",
-          "fields": ["suicide_rate"]
-          }
-        }
-    ],
-    "mark": {"type": "geoshape"},
-    "encoding": {
-      "color": {
-        "field": "suicide_rate",
-        "type": "quantitative",
-        "scale": {"scheme": "yelloworangered"}
-      },
-      "tooltip": [
-        {"field": "properties.name", "type": "nominal", "title": "Country"},
-        {"field": "suicide_rate", "type": "quantitative", "title": "Suicide Rate"}
-      ]
-    }
-  }
+      }
   ],
-  "config": {"background": "#eff3f8"}
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "suicide_rate",
+      "type": "quantitative",
+      "scale": {"scheme": "orangered"},
+      "legend": {"title": "Suicide Rate"}
+    },
+    "tooltip": [
+      {"field": "properties.name", "type": "nominal", "title": "Country"},
+      {"field": "suicide_rate", "type": "quantitative", "title": "Suicide Rate per 100K Population", "format": ".2f"}
+    ]
   }
+}
+],
+"config": {"background": "#eff3f8",
+          "title": {"font": "sans-serif", "fontSize": 20,
+          "subtitleFontSize": 14}}
+}
