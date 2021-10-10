@@ -1,0 +1,127 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_rate.csv"},
+  "vconcat": [
+    {"data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_rate.csv"},
+    "transform": [{
+      "filter": "datum.age == '5-14 years'"
+  }],
+  "width": 300,
+  "height": 60,
+    "mark": {
+    "type": "line",
+    "point": false
+  },
+  "encoding": {
+    "x": {"field": "year", "type": "temporal", "title": "", "axis": {"tickCount": 6, "labels": false}},
+    "y": {"aggregate":"mean", "field": "suicides/100k pop", "type": "quantitative", "title": ""},
+    "color": {"value": "#003f5c"},
+    "tooltip": [
+      {"field": "age", "type": "nominal", "title": "Age Group"},
+      {"field": "year", "type": "temporal", "timeUnit": "year", "title": "Year"},
+      {"aggregate": "mean", "field": "suicides/100k pop", "type": "quantitative", "title": "Average Suicide Rate", "format": ".2f"}
+    ]}
+},
+  {"data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_rate.csv"},
+    "transform": [{
+      "filter": "datum.age == '15-24 years'"
+  }],
+  "width": 300,
+  "height": 60,
+    "mark": {
+    "type": "line",
+    "point": false
+  },
+  "encoding": {
+    "x": {"field": "year", "type": "temporal", "title": "", "axis": {"tickCount": 6, "labels": false}},
+    "y": {"aggregate":"mean", "field": "suicides/100k pop", "type": "quantitative", "title": ""},
+    "color": {"value": "#58508d"},
+    "tooltip": [
+      {"field": "age", "type": "nominal", "title": "Age Group"},
+      {"field": "year", "type": "temporal", "timeUnit": "year", "title": "Year"},
+      {"aggregate": "mean", "field": "suicides/100k pop", "type": "quantitative", "title": "Average Suicide Rate", "format": ".2f"}
+    ]}
+},
+    {"data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_rate.csv"},
+    "transform": [{
+      "filter": "datum.age == '25-34 years'"
+  }],
+  "width": 300,
+  "height": 60,
+    "mark": {
+    "type": "line",
+    "point": false
+  },
+  "encoding": {
+    "x": {"field": "year", "type": "temporal", "title": "", "axis": {"tickCount": 6, "labels": false}},
+    "y": {"aggregate":"mean", "field": "suicides/100k pop", "type": "quantitative", "title": ""},
+    "color": {"value": "#bc5090"},
+    "tooltip": [
+      {"field": "age", "type": "nominal", "title": "Age Group"},
+      {"field": "year", "type": "temporal", "timeUnit": "year", "title": "Year"},
+      {"aggregate": "mean", "field": "suicides/100k pop", "type": "quantitative", "title": "Average Suicide Rate", "format": ".2f"}
+    ]}
+},
+  {"data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_rate.csv"},
+    "transform": [{
+      "filter": "datum.age == '35-54 years'"
+  }],
+  "width": 300,
+  "height": 60,
+    "mark": {
+    "type": "line",
+    "point": false
+  },
+  "encoding": {
+    "x": {"field": "year", "type": "temporal", "title": "", "axis": {"tickCount": 6, "labels": false}},
+    "y": {"aggregate":"mean", "field": "suicides/100k pop", "type": "quantitative", "title": "Average Suicide Rate"},
+    "color": {"value": "#ff6361"},
+    "tooltip": [
+      {"field": "age", "type": "nominal", "title": "Age Group"},
+      {"field": "year", "type": "temporal", "timeUnit": "year", "title": "Year"},
+      {"aggregate": "mean", "field": "suicides/100k pop", "type": "quantitative", "title": "Average Suicide Rate", "format": ".2f"}
+    ]}
+},
+  {"data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_rate.csv"},
+    "transform": [{
+      "filter": "datum.age == '55-74 years'"
+  }],
+  "width": 300,
+  "height": 60,
+    "mark": {
+    "type": "line",
+    "point": false
+  },
+  "encoding": {
+    "x": {"field": "year", "type": "temporal", "title": "", "axis": {"tickCount": 6, "labels": false}},
+    "y": {"aggregate":"mean", "field": "suicides/100k pop", "type": "quantitative", "title": ""},
+    "color": {"value": "#ffa600"},
+    "tooltip": [
+      {"field": "age", "type": "nominal", "title": "Age Group"},
+      {"field": "year", "type": "temporal", "timeUnit": "year", "title": "Year"},
+      {"aggregate": "mean", "field": "suicides/100k pop", "type": "quantitative", "title": "Average Suicide Rate", "format": ".2f"}
+    ]}
+},
+  {"data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_rate.csv"},
+    "transform": [{
+      "filter": "datum.age == '75+ years'"
+  }],
+  "width": 300,
+  "height": 90,
+    "mark": {
+    "type": "line",
+    "point": false
+  },
+  "encoding": {
+    "x": {"field": "year", "type": "temporal", "title": "Year", "axis": {"tickCount": 6}},
+    "y": {"aggregate":"mean", "field": "suicides/100k pop", "type": "quantitative", "title": ""},
+    "color": {"value": "#ffe800"},
+    "tooltip": [
+      {"field": "age", "type": "nominal", "title": "Age Group"},
+      {"field": "year", "type": "temporal", "timeUnit": "year", "title": "Year"},
+      {"aggregate": "mean", "field": "suicides/100k pop", "type": "quantitative", "title": "Average Suicide Rate", "format": ".2f"}
+    ]}
+}
+],
+  "config": {"background": "#eff3f8"}
+}

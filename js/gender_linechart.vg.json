@@ -14,7 +14,7 @@
       "point": true
     },
     "encoding": {
-      "x": {"field": "year", "type": "ordinal", "title": "Year"},
+      "x": {"field": "year", "type": "temporal", "title": "Year"},
       "y": {"aggregate":"mean", "field": "suicides/100k pop", "type": "quantitative", "title": "Average Rate"},
       "color": {"field": "sex", "type": "nominal", "title": "Gender", "legend": null,
                 "scale": {"range": ["#ff6961", "#00c4aa"]}},

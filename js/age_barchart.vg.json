@@ -6,8 +6,8 @@
             "anchor": "start",
             "dx": 30,
             "dy": -10},
-  "width": 400,
-  "height": 300,
+  "width": 450,
+  "height": 400,
   "data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_rate.csv"},
   "params": [
     {"name": "continent_selection",
@@ -47,6 +47,9 @@
           "type": "quantitative",
           "title": "Average Rate",
           "axis": {"tickCount": {"interval": 5}}},
+    "color": {"field": "age",
+              "scale": {"range": ["#58508d", "#bc5090", "#ff6361", "#003f5c", "#ffa600", "#ffe800"]},
+              "legend":null},
     "tooltip": [
       {"field": "age", "type": "nominal", "title": "Age"},
       {"field": "suicides/100k pop", 
@@ -56,6 +59,5 @@
        "format": ".2f"}
     ]
   },
-  "config": {"background": "#eff3f8",
-            "mark": {"color": "#ffa500"}}
+  "config": {"background": "#eff3f8"}
 }
