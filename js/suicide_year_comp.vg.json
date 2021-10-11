@@ -1,142 +1,143 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
-    "height": 500,
-    "title": {"text": "Suicide Rate in 1995 vs. 2015",
-              "subtitle": "Number of Suicides per 100K Population",
-              "subtitleFontStyle": "italic",
-              "anchor": "start",
-              "dx": 30,
-              "dy": -10},
-    "data": {
-      "url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_year_comp.csv"
-    },
-    "params": [
-      {"name": "continent_selection",
-      "bind": {
-        "input": "select",
-        "options": [
-          null,
-          "Americas",
-          "Europe",
-          "Africa",
-          "Asia",
-          "Oceania"
-        ],
-        "labels": [
-          "Show All",
-          "Americas",
-          "Europe",
-          "Africa",
-          "Asia",
-          "Oceania"
-        ],
-        "name": "Continent Selection: "
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 400,
+  "title": {"text": "Suicide Rate in 1995 vs. 2015",
+            "subtitle": "Number of Suicides per 100K Population",
+            "subtitleFontStyle": "italic",
+            "anchor": "start",
+            "dx": 30,
+            "dy": -10},
+  "data": {
+    "url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_year_comp.csv"
+  },
+  "params": [
+    {"name": "continent_selection",
+    "bind": {
+      "input": "select",
+      "options": [
+        null,
+        "Americas",
+        "Europe",
+        "Africa",
+        "Asia",
+        "Oceania"
+      ],
+      "labels": [
+        "Show All",
+        "Americas",
+        "Europe",
+        "Africa",
+        "Asia",
+        "Oceania"
+      ],
+      "name": "Continent Selection: "
       }
-    ],
-    "transform": [{"filter": "continent_selection == null || datum.continent == continent_selection"}],
-    "encoding": {
-      "x": {
-        "field": "2015",
-        "type": "quantitative",
-        "title": "Suicide Rate in 2015",
-        "axis": {"tickCount": 10}
-      },
-      "y": {
-        "field": "1995",
-        "type": "quantitative",
-        "title": "Suicide Rate in 1995",
-        "axis": {"tickCount": 5}
-      }
+    }
+  ],
+  "transform": [{"filter": "continent_selection == null || datum.continent == continent_selection"}],
+  "encoding": {
+    "x": {
+      "field": "2015",
+      "type": "quantitative",
+      "title": "Suicide Rate in 2015",
+      "axis": {"tickCount": 10}
     },
-    "layer": [
-      {
-          "data": {
-            "values": [
-              {"y": "0", "x": "0"},
-              {"y": "35", "x": "35"}
-              ]
-          },
-          "mark": {"type": "line", "strokeDash": [10, 5], "color": "#d3d3d3"},
-           "encoding": {
-            "x": {"field": "x", "type": "quantitative"},
-            "y": {"field": "y", "type": "quantitative"}
-          }},    
-      {"params": [
-        {"name": "continent_highlight",
-        "select": {"type": "point", "fields": ["continent"]},
-        "bind": "legend"
-      }],
-      "mark": "circle",
-      "encoding": {
-      "color": {
-      "field": "continent",
-      "type": "nominal",
-      "scale": {
-        "domain": [
-          "Americas",
-          "Europe",
-          "Africa",
-          "Asia",
-          "Oceania"
-        ],
-        "range": [
-          "#e31a1c",
-          "#1f78b4",
-          "#fb9a99",
-          "#33a02c",
-          "#ff7f00"
-        ]
-      },
-      "legend": {"title": "Continent"}
-    },
-      "opacity": {
-        "condition": {"param": "continent_highlight", "value":0.7},
-        "value": 0.2
-      },
-      "tooltip" : [
-        {"field": "country", "type": "nominal",
-        "title": "Country"},
-        {"field": "change", "type": "quantitative",
-        "format": ".2f", "title": "Percentage Change (%)"},
-        {"field": "1995", "type": "quantitative", "format": ".2f",
-        "title": "Suicide rate in 1995"},
-        {"field": "2015", "type": "quantitative", "format": ".2f",
-        "title": "Suicide rate in 2015"}
-      ]
+    "y": {
+      "field": "1995",
+      "type": "quantitative",
+      "title": "Suicide Rate in 1995",
+      "axis": {"tickCount": 5}
     }
   },
-    {"mark": {
-      "type": "text",
-      "align": "right",
-      "baseline": "middle",
-      "dx": -8,
-      "fontSize": 10,
-      "fontStyle": "italic"
-      },
-      "encoding": {
-        "text": {"field": "country", "type": "nominal"},
-        "color": {"value": "black"},
-        "opacity": {
-          "condition": {
-            "test": "datum['country'] == 'Republic of Korea' || datum['country'] == 'Singapore' || datum['country'] == 'Australia' || datum['country'] == 'Russian Federation' || datum['country'] == 'Finland' || datum['country'] == 'Lithuania' || datum['country'] == 'Japan' || datum['country'] == 'Hungary' || datum['country'] == 'Chile'",
-            "value": 1   
-          },
-          "value": 0
+  "layer": [
+    {
+        "data": {
+          "values": [
+            {"y": "0", "x": "0"},
+            {"y": "35", "x": "35"}
+            ]
         },
-    "tooltip" : [
-        {"field": "country", "type": "nominal",
-        "title": "Country"},
-        {"field": "change", "type": "quantitative",
-        "format": ".2f", "title": "Percentage Change (%)"},
-        {"field": "1995", "type": "quantitative", "format": ".2f",
-        "title": "Suicide rate in 1995"},
-        {"field": "2015", "type": "quantitative", "format": ".2f",
-        "title": "Suicide rate in 2015"}
+        "mark": {"type": "line", "strokeDash": [10, 5], "color": "#d3d3d3"},
+         "encoding": {
+          "x": {"field": "x", "type": "quantitative"},
+          "y": {"field": "y", "type": "quantitative"}
+        }},    
+    {"params": [
+      {"name": "continent_highlight",
+      "select": {"type": "point", "fields": ["continent"]},
+      "bind": "legend"
+    }],
+    "mark": {"type": "circle",
+            "size": 80},
+    "encoding": {
+    "color": {
+    "field": "continent",
+    "type": "nominal",
+    "scale": {
+      "domain": [
+        "Americas",
+        "Europe",
+        "Africa",
+        "Asia",
+        "Oceania"
+      ],
+      "range": [
+        "#e31a1c",
+        "#1f78b4",
+        "#fb9a99",
+        "#33a02c",
+        "#ff7f00"
       ]
-    }
+    },
+    "legend": {"title": "Continent"}
+  },
+    "opacity": {
+      "condition": {"param": "continent_highlight", "value":0.7},
+      "value": 0.2
+    },
+    "tooltip" : [
+      {"field": "country", "type": "nominal",
+      "title": "Country"},
+      {"field": "change", "type": "quantitative",
+      "format": ".2f", "title": "Percentage Change (%)"},
+      {"field": "1995", "type": "quantitative", "format": ".2f",
+      "title": "Suicide rate in 1995"},
+      {"field": "2015", "type": "quantitative", "format": ".2f",
+      "title": "Suicide rate in 2015"}
+    ]
   }
-  ]
+},
+  {"mark": {
+    "type": "text",
+    "align": "right",
+    "baseline": "middle",
+    "dx": -8,
+    "fontSize": 10,
+    "fontStyle": "italic"
+    },
+    "encoding": {
+      "text": {"field": "country", "type": "nominal"},
+      "color": {"value": "black"},
+      "opacity": {
+        "condition": {
+          "test": "datum['country'] == 'Republic of Korea' || datum['country'] == 'Singapore' || datum['country'] == 'Australia' || datum['country'] == 'Russian Federation' || datum['country'] == 'Finland' || datum['country'] == 'Lithuania' || datum['country'] == 'Japan' || datum['country'] == 'Hungary' || datum['country'] == 'Chile'",
+          "value": 1   
+        },
+        "value": 0
+      },
+  "tooltip" : [
+      {"field": "country", "type": "nominal",
+      "title": "Country"},
+      {"field": "change", "type": "quantitative",
+      "format": ".2f", "title": "Percentage Change (%)"},
+      {"field": "1995", "type": "quantitative", "format": ".2f",
+      "title": "Suicide rate in 1995"},
+      {"field": "2015", "type": "quantitative", "format": ".2f",
+      "title": "Suicide rate in 2015"}
+    ]
   }
-  
+}
+],
+"config": {"background": "#eff3f8"}
+}

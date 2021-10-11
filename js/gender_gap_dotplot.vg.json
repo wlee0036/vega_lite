@@ -8,6 +8,7 @@
             "dy": -10},
   "data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_gap_gender_top20.csv"},
   "width": 300,
+  "height": 500,
   "encoding": {
     "x": {
       "field": "suicide_rate",

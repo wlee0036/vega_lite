@@ -48,7 +48,7 @@
           "title": "Average Rate",
           "axis": {"tickCount": {"interval": 5}}},
     "color": {"field": "age",
-              "scale": {"range": ["#58508d", "#bc5090", "#ff6361", "#003f5c", "#ffa600", "#ffe800"]},
+              "scale": {"range": ["#58508d", "#bc5090", "#ff6361", "#003f5c", "#ffa600", "#ffda00"]},
               "legend":null},
     "tooltip": [
       {"field": "age", "type": "nominal", "title": "Age"},

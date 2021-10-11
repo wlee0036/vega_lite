@@ -115,7 +115,7 @@
   "encoding": {
     "x": {"field": "year", "type": "temporal", "title": "Year", "axis": {"tickCount": 6}},
     "y": {"aggregate":"mean", "field": "suicides/100k pop", "type": "quantitative", "title": ""},
-    "color": {"value": "#ffe800"},
+    "color": {"value": "#ffda00"},
     "tooltip": [
       {"field": "age", "type": "nominal", "title": "Age Group"},
       {"field": "year", "type": "temporal", "timeUnit": "year", "title": "Year"},
