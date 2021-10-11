@@ -60,8 +60,13 @@
                 </p>
                 <br>
                 <p>Several factors contribute to this phenomena. One key element is the lack of communication. Society has, for many generations, 
-                    encourage men to stay strong and not to cast out their emotions as it is believed as a sign of weakness. Looks like the 'boys don't cry' pressure is causing damaging mental health
-                    consequences.
+                    encourage men to stay strong and not to cast out their emotions as it is believed as a sign of weakness. As a result, men are less likely to seek help
+                    when facing emotional problems. Most of them self-treat their depression with alcohol, drugs and other substances. Looks like the 'boys don't cry' pressure is
+                    causing damaging mental health consequences.
+                </p>
+                <br>
+                <p>Moreover, in a lot of culture, men are the head of the household. They worry more about finances or trying to find a job. When there are economic factors
+                  they can't control, it becomes very difficult. In fact, a study in 2015 found that for every 1% increase in unemployment there is a 0.79% increase in suicide rate.
                 </p>
                 <br>
                 <p>Men suicides are highest in <b>European</b> countries. Gender disparity in suicide rate are also the biggest in this region. Meanwhile women suicides are highest in <b>Asian</b> countries.
@@ -107,12 +112,77 @@
           <div class="pure-u-1-3">
             <div class="description description-right">
                 <h2><i>Suicide rate increases with age</i></h2>
-                <p>Text</p>
+                <p>Generally, the likelihood of suicide increases with a person's age. This might looks surprising given the fact that suicide
+                  is one of the leading causes of death among the young people.</p>
+                  <br>
+                <p>So, why do suicide rate are highest among the 75+ years age group?
+                  Well, this is actually because people aged 70 years above died from numerous reasons: cardiovascular disease, cancer, stroke,
+                  diabetes, Alzheimer's disease, and respiratory diseases. The number of suicide is high, but still generally surpassed by
+                  other causes.</p>
+                  <br>
+                <p>The pattern shows that since the year 1995, suicide rate for everyone aged 15 and above has been constantly decreasing. A
+                  significant drop in suicide rate happened in the age group 75+ years. Since 1995, this rate has fall by more than 30%. Suicide
+                  rate in the 5-14 category remains roughly stable and small with under 1 suicide per 100,000 population per year.</p>
+                  <br>
+                <p>
+                  Globally, in every continent, the trend of suicide rate increasing with age is true. However, this is not the case in Africa 
+                  and Oceania. In Africa, the age group 35-54 years has the highest suicide rate. Meanwhile, in Oceania the age group 15-24 years
+                  has the highest suicide rate. This might be due to underrepresentation of countries in both continents, only data of 3 countries
+                  were available for Africa and only Australia and New Zealand represents Oceania.
+                </p>
             </div>
             </div>
     </div>
     <!-- end pure grid group -->
-  
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+          <h2 style="text-align:center; font-size: 30px;">How Have Suicide Rates Changed?</h2>
+          <p style="text-align: center; font-size: larger;">The 45 degree grey line represents <i>parity</i>. Countries which lie along
+            <br>this line had the same suicide rate in 2015 as they did in 1995.
+            <br>Countries which lie above this line had higher rates in 1995, but have improved recently.
+            <br>Meanwhile, countries below the line had higher rates in 2015 compared to 1995.</p>
+      </div>
+</div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group--> 
+    <div class="pure-g">
+      <div class="pure-u-1-2" style="text-align: left; float: left;">
+          <div id="suicide_year_comp" class="vis-container"></div> 
+        </div>
+
+        <div class="pure-u-1-2" style="text-align: center;">
+          <h2>Country with the highest <i>increase</i></h2>
+            <img src="images/korea_flag.png" alt="Korea National Flag" style="width: 100px; height: 60px; float: left; margin-left: 150px;">
+            <h3 style="float: left; margin-left: 30px; font-size: 20px;">Republic of Korea</h3>
+            <br>
+            <br>
+            <br>
+            <p style="text-align: justify; margin-left: 150px;">According to WHO, Korea is currently in the top 10 countries for
+              <br>suicide rate, leading the OECD countries. Around 36 people per day
+              <br>commited suicide. In Korea, people receive high social pressure ever 
+              <br>since they are a kid; academic/school pressures as well as the strict
+              <br>parenting culture. The entry requirements to top-tier universities and
+              <br>corporations are rigid. Society has also put beauty standards, judging
+              <br>people's worth by how they look.</p>
+          <h2>Country with the greatest <i>decline</i></h2>
+            <img src="images/estonia_flag.png" alt="Korea National Flag" style="width: 100px; height: 60px; float: left; margin-left: 150px;">
+            <h3 style="float: left; margin-left: 30px; font-size: 20px;">Estonia</h3>
+            <br>
+            <br>
+            <br>
+            <p style="text-align: justify; margin-left: 150px;">Estonia is a country situated in Northern Europe, surrounded by Russia 
+            <br>to the east, and by Latvia to the south. Estonia is a developed country,
+            <br>ranking quite high in the Human Development Index. The country used
+            <br>to have a very high suicide rate, one of the highest in Europe mainly
+            <br>due to high alcohol consumption and Lutheran ethics. Despite its rate
+            <br>still being considerably high, Estonia has improved the most globally.</p>
+          </div>
+    </div>
+
+
     <div class="pure-g">
       <div class="pure-u-1-1 small-font">
         <p>This visualisation is created by Winston Lee for FIT3179 Assignment. The datasource is from <a href="https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016" target="_blank">Kaggle</href>.</p>
@@ -128,6 +198,7 @@
   var specVis3= "js/gender_gap_dotplot.vg.json";
   var specVis4= "js/age_barchart.vg.json";
   var specVis5= "js/age_linechart.vg.json";
+  var specVis6= "js/suicide_year_comp.vg.json";
 
   vegaEmbed('#suicide_choropleth_map', specVis1, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -148,6 +219,11 @@
   vegaEmbed('#age_linechart', specVis5, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
+
+  vegaEmbed('#suicide_year_comp', specVis6, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
 </script>
+
 </body>
 </html>
