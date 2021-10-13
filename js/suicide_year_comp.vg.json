@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
+  "width": 600,
   "height": 400,
   "title": {"text": "Suicide Rate in 1995 vs. 2015",
             "subtitle": "Number of Suicides per 100K Population",
