@@ -1,0 +1,159 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 400,
+    "title": {"text": "Suicide Rate and GDP per Capita",
+              "subtitle": "Number of Suicides per 100K Population",
+              "subtitleFontStyle": "italic",
+              "anchor": "start",
+              "dx": 30,
+              "dy": -10},
+    "data": {
+      "url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_country_gdp.csv"
+    },
+    "params": [
+      {"name": "year_slider",
+      "value": 1995,
+      "bind": {
+        "input": "range",
+        "min": 1995,
+        "max": 2015,
+        "step": 1,
+        "name": "Year Slider: "
+        }
+      },
+      {"name": "population_above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 100000000,
+        "step": 1000000,
+        "name": "Minimum Population: "
+        }
+      },
+      {"name": "continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Americas",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "labels": [
+          "Show All",
+          "Americas",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "name": "Continent Selection: "
+        }
+      }
+    ],
+    "transform": [
+      {"filter": "datum.suicide_rate > 0"},
+      {"filter": "datum.year == year_slider"},
+      {"filter": "continent_selection == null || datum.continent == continent_selection"},
+      {"filter": "datum.population > population_above"}],
+    "encoding": {
+      "x": {
+        "field": "gdp_per_capita",
+        "type": "quantitative",
+        "title": "GDP per Capita ($)",
+        "axis": {"tickCount": 5}
+      },
+      "y": {
+        "field": "suicide_rate",
+        "type": "quantitative",
+        "title": "Suicide Rate"
+      }
+    },
+    "layer": [    
+      {"params": [
+        {"name": "continent_highlight",
+        "select": {"type": "point", "fields": ["continent"]},
+        "bind": "legend"
+      }],
+      "mark": {"type": "circle"},
+      "encoding": {
+      "size": {
+        "field": "population",
+        "type": "quantitative",
+        "scale": {
+          "type": "threshold",
+          "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
+          "range": [10, 50, 150, 200, 300, 400]
+          },
+        "legend": {"format": ".1s",
+                  "title": "Population"}
+      },
+      "color": {
+      "field": "continent",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Americas",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "range": [
+          "#e31a1c",
+          "#1f78b4",
+          "#fb9a99",
+          "#33a02c",
+          "#ff7f00"
+        ]
+      },
+      "legend": {"title": "Continent"}
+    },
+      "opacity": {
+        "condition": {"param": "continent_highlight", "value":0.6},
+        "value": 0.2
+      },
+      "tooltip" : [
+        {"field": "country", "type": "nominal",
+        "title": "Country"},
+        {"field": "year", "type": "ordinal", "title": "Year"},
+        {"field": "gdp_per_capita", "type": "quantitative", "title": "GDP per Capita ($)"},
+        {"field": "suicide_rate", "type": "quantitative", "format": ".2f", "title": "Suicide Rate"}
+      ]
+    }
+  },
+    {"mark": {
+      "type": "text",
+      "align": "right",
+      "baseline": "middle",
+      "dx": -10,
+      "fontSize": 10.5,
+      "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['country'] == 'Republic of Korea' || datum['country'] == 'Australia' || datum['country'] == 'Russian Federation' || datum['country'] == 'United States' || datum['country'] == 'France' || datum['country'] == 'Japan' || datum['country'] == 'United Kingdom' || datum['country'] == 'Mexico'",
+            "value": 1   
+          },
+          "value": 0
+        },
+    "tooltip" : [
+        {"field": "country", "type": "nominal",
+        "title": "Country"},
+        {"field": "year", "type": "ordinal", "title": "Year"},
+        {"field": "gdp_per_capita", "type": "quantitative", "title": "GDP per Capita ($)"},
+        {"field": "suicide_rate", "type": "quantitative", "format": ".2f", "title": "Suicide Rate"}
+      ]
+    }
+  }
+  ],
+  "config": {"background": "#eff3f8"}
+  }
+  
