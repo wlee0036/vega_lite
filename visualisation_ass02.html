@@ -45,8 +45,8 @@
       <div class="pure-g">
         <div class="pure-u-1-1">
           <h2 style="text-align:center; font-size: 30px;">Gender Differences in Suicide</h2>
-          <p style="text-align:center;"> <span style="color:#ff6961; font-weight: bold; font-size: larger;">Women</span> are more likely to be diagnosed with suicidal thoughts,
-            <br> but <span style="color:#00c4aa; font-weight: bold; font-size: larger;">men</span> died from suicide at a <b>higher</b> rate</p>
+          <p style="text-align:center; font-size: larger;"> <span style="color:#ff6961; font-weight: bold; font-size: larger;">Women</span> are more likely to be diagnosed with suicidal thoughts,
+            <br> but <span style="color:#00c4aa; font-weight: bold; font-size: larger;">men</span> died from suicide at a <b><i>higher</i></b> rate</p>
         </div>
       </div>
     <!-- end pure grid group -->
@@ -181,11 +181,62 @@
             <br>still being considerably high, Estonia has improved the most globally.</p>
           </div>
     </div>
+    <!-- end pure grid group -->
 
-
+    <!-- pure grid group -->
     <div class="pure-g">
-      <div class="pure-u-1-1 small-font">
-        <p>This visualisation is created by Winston Lee for FIT3179 Assignment. The datasource is from <a href="https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016" target="_blank">Kaggle</href>.</p>
+      <div class="pure-u-1-1">
+          <h2 style="text-align:center; font-size: 30px;">Can Money Buy Happiness?</h2>
+          <p style="text-align: center; font-size: larger;">Is there any link between how rich a country is
+          <br>and how high the suicide rate?</p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+          <div class="description description-left">
+              <h2>There is no clear relationship between
+                <br>GDP per capita and suicide rate
+              </h2>
+              <p>The visualization on the right tells us that there appears to be 
+                <br>no statistically significant relationship between GDP per capita and
+                <br>suicide rate. The relationship might be a little bit prominent
+                <br>in specific continent like the Europe, but again this pattern is
+                <br>not always seen as year varies.
+              </p>
+              <br>
+              <p>The notion that a country's suicide rate decreases as it gets wealthier
+                <br>is not true. In fact, we can see that suicide rate is a problem faced
+                <br>in all countries globally, regardless of whether they are rich or not.
+              </p>
+              <br>
+              <p>For example, Australia, a country which has been growing rapidly
+                <br>in terms of GDP per capita for the last 20 years. In 2015,
+                <br>Australia's GDP per capita is approximately 60,656 almost
+                <br>triple times than its GDP per capita in 1995. Despite that
+                <br>being said, its suicide rate has been slightly higher.
+              </p>
+              <br>
+              <p>Although money is believed by many as a factor that drives people
+                <br>to take their own lives, there are a lot of other socioeconomic
+                <br>factors to take into consideration to solve this complex puzzle. 
+              </p>
+          </div>
+      </div>
+
+      <div class="pure-u-1-2" style="margin-left: -120px;">
+        <div id="suicide_gdp"  class="vis-container"></div> 
+      </div>
+    </div>
+      <!-- end pure grid group -->
+
+    <br>
+    <br>
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font" style="margin-bottom: -100px;">
+        <p>This visualisation is created by <a href="https://github.com/wlee0036" target="_blank">Winston Lee</a> for FIT3179 Assignment. The datasource is from <a href="https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016" target="_blank">Kaggle</href>.</p>
       </div>
     </div>
   
@@ -199,6 +250,7 @@
   var specVis4= "js/age_barchart.vg.json";
   var specVis5= "js/age_linechart.vg.json";
   var specVis6= "js/suicide_year_comp.vg.json";
+  var specVis7= "js/suicide_gdp.vg.json";
 
   vegaEmbed('#suicide_choropleth_map', specVis1, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -223,6 +275,11 @@
   vegaEmbed('#suicide_year_comp', specVis6, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
+
+  vegaEmbed('#suicide_gdp', specVis7, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
 </script>
 
 </body>
