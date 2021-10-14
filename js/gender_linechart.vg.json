@@ -7,7 +7,7 @@
               "dx": 30,
               "dy": -10}, 
     "data": {"url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_rate.csv"},
-    "width": 450,
+    "width": 460,
     "height": 250,
     "layer" : [ {"mark": {
       "type": "line",

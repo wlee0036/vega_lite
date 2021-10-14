@@ -6,7 +6,7 @@
               "subtitle": "Number of Suicides per 100K Population",
               "subtitleFontStyle": "italic",
               "anchor": "start",
-              "dx": 30,
+              "dx": 80,
               "dy": -10},
     "data": {
       "url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_country_gdp.csv"

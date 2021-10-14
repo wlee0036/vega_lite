@@ -6,7 +6,7 @@
             "subtitle": "Number of Suicides per 100K Population",
             "subtitleFontStyle": "italic",
             "anchor": "start",
-            "dx": 30,
+            "dx": 70,
             "dy": -10},
   "data": {
     "url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/data/suicide_year_comp.csv"
@@ -58,7 +58,7 @@
             {"y": "35", "x": "35"}
             ]
         },
-        "mark": {"type": "line", "strokeDash": [10, 5], "color": "#d3d3d3"},
+        "mark": {"type": "line", "strokeDash": [10, 5], "color": "#aaaaaa"},
          "encoding": {
           "x": {"field": "x", "type": "quantitative"},
           "y": {"field": "y", "type": "quantitative"}
@@ -113,7 +113,7 @@
     "align": "right",
     "baseline": "middle",
     "dx": -8,
-    "fontSize": 10,
+    "fontSize": 11,
     "fontStyle": "italic"
     },
     "encoding": {

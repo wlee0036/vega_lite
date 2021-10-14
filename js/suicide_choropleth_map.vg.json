@@ -1,9 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {"text": "Global Suicide Rate Map",
-  "subtitle" :"Number of Suicides per 100K Population"},
+  "title": "",
   "width": 1000,
-  "height": 500,
+  "height": 400,
   "data": {
     "url": "https://raw.githubusercontent.com/wlee0036/vega_lite/main/js/world.geo.json",
     "format": {"type": "topojson", "feature": "custom.geo"}
@@ -51,6 +50,6 @@
 }
 ],
 "config": {"background": "#eff3f8",
-          "title": {"font": "sans-serif", "fontSize": 20,
+          "title": {"font": "sans-serif", "fontSize": 30,
           "subtitleFontSize": 14}}
 }
